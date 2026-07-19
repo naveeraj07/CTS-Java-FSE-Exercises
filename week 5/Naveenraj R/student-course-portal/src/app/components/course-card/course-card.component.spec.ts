@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SimpleChange } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CourseCardComponent } from './course-card.component';
 import { Course } from '../../models/course.model';
 
@@ -12,7 +13,7 @@ describe('CourseCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CourseCardComponent]
+      imports: [CourseCardComponent, HttpClientTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseCardComponent);

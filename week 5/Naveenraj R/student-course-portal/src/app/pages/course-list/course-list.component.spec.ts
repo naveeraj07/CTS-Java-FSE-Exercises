@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { By } from '@angular/platform-browser';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CourseListComponent } from './course-list.component';
 import { Course } from '../../models/course.model';
 
@@ -15,7 +16,7 @@ describe('CourseListComponent (NgRx-connected)', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CourseListComponent],
+      imports: [CourseListComponent, HttpClientTestingModule],
       providers: [
         provideRouter([]),
         provideMockStore({
