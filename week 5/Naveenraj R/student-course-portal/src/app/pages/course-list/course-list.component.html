@@ -1,0 +1,23 @@
+<h2>Course Listing</h2>
+
+<div class="search-bar">
+  <input [(ngModel)]="searchTerm" name="search" (keyup.enter)="onSearch()" placeholder="Search courses…">
+  <button (click)="onSearch()">Search</button>
+</div>
+
+<p *ngIf="loading$ | async">Loading courses...</p>
+<p class="error" *ngIf="error$ | async as error">{{ error }}</p>
+
+<ng-container *ngIf="(courses$ | async) as courses">
+  <div *ngIf="courses.length; else noCourses">
+    <app-course-card
+      *ngFor="let course of courses; trackBy: trackByCourseId"
+      [course]="course"
+      (enrollRequested)="onEnroll($event)"
+      (click)="goToDetail(course.id)"
+    ></app-course-card>
+  </div>
+  <ng-template #noCourses><p>No courses available.</p></ng-template>
+</ng-container>
+
+<p *ngIf="selectedCourseId">Selected course ID: {{ selectedCourseId }}</p>

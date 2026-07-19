@@ -1,0 +1,8 @@
+<h2>Student Profile</h2>
+<app-notification></app-notification>
+
+<h3>Enrolled Courses</h3>
+<ul *ngIf="(enrolledCourses$ | async) as enrolled; else none">
+  <li *ngFor="let course of enrolled">{{ course.name }} ({{ course.code }})</li>
+</ul>
+<ng-template #none><p>No enrolled courses yet.</p></ng-template>

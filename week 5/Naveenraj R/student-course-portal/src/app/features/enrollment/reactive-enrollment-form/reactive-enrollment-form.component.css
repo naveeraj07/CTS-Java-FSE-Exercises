@@ -1,0 +1,5 @@
+.field { margin-bottom: 0.9rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.field.checkbox { flex-direction: row; align-items: center; }
+input, select { padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; }
+.error { color: #e74c3c; font-size: 0.8rem; }
+.success { margin-top: 1rem; color: #155724; background: #d4edda; padding: 0.5rem; border-radius: 4px; }

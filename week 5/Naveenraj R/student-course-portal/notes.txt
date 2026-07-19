@@ -1,0 +1,23 @@
+Hands-On 1 / Task 1 — Notes on generated files
+
+angular.json         - Workspace configuration: build targets, file paths, budgets, and
+                        per-project architect options (build/serve/test) used by the Angular CLI.
+tsconfig.json         - Root TypeScript compiler configuration shared by the whole workspace,
+                        including Angular's strict template-checking flags.
+tsconfig.app.json      - TypeScript config specific to the browser application build; extends
+                        tsconfig.json and points at src/main.ts as the entry file.
+package.json          - npm manifest: project metadata, dependencies (Angular, RxJS, NgRx) and
+                        devDependencies (CLI, Karma, Jasmine), plus the npm scripts (start/build/test).
+src/main.ts           - Application entry point; bootstraps the root standalone AppComponent with
+                        the providers defined in app.config.ts.
+src/app/app.config.ts - Standalone application configuration (replaces app.module.ts) — registers
+                        the router, HttpClient, and the NgRx store/effects providers.
+src/app/app.component.ts - The root component; hosts the header and the <router-outlet> into
+                        which every routed page is rendered.
+src/index.html         - The single HTML page of the SPA; contains the <app-root> element that
+                        Angular bootstraps into and loads the compiled JS bundles.
+
+angular.json budgets (architect > build > configurations > production):
+  maximumWarning: 500kb  - initial bundle size above which the CLI prints a build warning.
+  maximumError:   1mb    - initial bundle size above which the CLI fails the production build.
+These guardrails stop the app's shipped JavaScript from silently growing too large.
